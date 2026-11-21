@@ -4,379 +4,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrito | Press On Nails Set</title>
-
+<title>Carrito | PressOn Nails Set</title>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #fff9fb;
-  color: #493b42;
-  padding: 20px;
-}
-
-.container {
-  max-width: 650px;
-  margin: auto;
-}
-
-.back {
-  display: inline-block;
-  color: #8e6478;
-  text-decoration: none;
-  margin-bottom: 25px;
-  font-size: 15px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 27px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  text-align: center;
-  color: #967d89;
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-
-.section {
-  background: white;
-  border: 1px solid #f0dfe7;
-  border-radius: 13px;
-  padding: 20px;
-  margin-bottom: 18px;
-}
-
-h2 {
-  font-size: 17px;
-  margin-bottom: 17px;
-  color: #765466;
-}
-
-.product-name {
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.price {
-  margin-top: 7px;
-  color: #987386;
-}
-
-label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 7px;
-  margin-top: 15px;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e6d2dc;
-  border-radius: 8px;
-  background: #fffdfd;
-  color: #493b42;
-  font-size: 14px;
-  outline: none;
-}
-
-input:focus, select:focus {
-  border-color: #b78ba2;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 13px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.add-button {
-  width: 100%;
-  background: #a77d94;
-  color: white;
-  margin-top: 15px;
-}
-
-.add-note {
-  font-size: 12px;
-  color: #967d89;
-  line-height: 1.5;
-  margin-top: 16px;
-}
-
-.cart-item {
-  border-bottom: 1px solid #f0e4e9;
-  padding: 13px 0;
-}
-
-.cart-item:last-child {
-  border-bottom: none;
-}
-
-.cart-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cart-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.small-button {
-  background: #f5eaf0;
-  color: #765466;
-  padding: 7px 12px;
-}
-
-.remove-button {
-  background: transparent;
-  color: #b56b83;
-  padding: 7px;
-}
-
-.empty {
-  color: #a28e98;
-  font-size: 14px;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin: 12px 0;
-  font-size: 14px;
-}
-
-.total {
-  border-top: 1px solid #eadce3;
-  padding-top: 14px;
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.deposit-info {
-  background: #fff5f8;
-  border-radius: 9px;
-  padding: 13px;
-  margin-top: 15px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 13px 0;
-  font-size: 14px;
-}
-
-.option input {
-  width: auto;
-  accent-color: #a77d94;
-}
-
-.address-fields {
-  display: none;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #f0e4e9;
-}
-
-.terms {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 12px;
-  line-height: 1.6;
-  margin-top: 15px;
-}
-
-.terms input {
-  width: auto;
-  margin-top: 3px;
-  accent-color: #a77d94;
-}
-
-.checkout-button {
-  width: 100%;
-  background: #765466;
-  color: white;
-  margin-top: 18px;
-  padding: 16px;
-}
-
-.message {
-  color: #b14f69;
-  font-size: 13px;
-  margin-top: 12px;
-  line-height: 1.5;
-  display: none;
-}
-
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #ad98a2;
-  margin: 25px 0 10px;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff9fb;color:#493b42;padding:20px}
+.container{max-width:650px;margin:auto}
+.back{display:inline-block;color:#8e6478;text-decoration:none;margin-bottom:25px;font-size:15px}
+h1{text-align:center;font-size:27px;letter-spacing:2px;margin-bottom:8px}
+.subtitle{text-align:center;color:#967d89;font-size:14px;margin-bottom:30px}
+.section{background:white;border:1px solid #f0dfe7;border-radius:13px;padding:20px;margin-bottom:18px}
+h2{font-size:17px;margin-bottom:17px;color:#765466}
+.product-name{font-weight:bold;font-size:17px}
+.price{margin-top:7px;color:#987386}
+label{display:block;font-size:14px;margin-bottom:7px;margin-top:15px}
+input,select{width:100%;padding:12px;border:1px solid #e6d2dc;border-radius:8px;background:#fffdfd;color:#493b42;font-size:14px;outline:none}
+input:focus,select:focus{border-color:#b78ba2}
+button{cursor:pointer;border:none;border-radius:8px;padding:13px;font-size:14px;font-weight:bold}
+.add-button{width:100%;background:#a77d94;color:white;margin-top:15px}
+.add-note{font-size:12px;color:#967d89;line-height:1.5;margin-top:12px}
+.option{display:flex;align-items:center;gap:10px;margin:13px 0;font-size:14px}
+.option input{width:auto;accent-color:#a77d94}
+.cart-item{border-bottom:1px solid #f0e4e9;padding:13px 0}
+.cart-item:last-child{border-bottom:none}
+.cart-top{display:flex;justify-content:space-between;gap:10px}
+.cart-controls{display:flex;align-items:center;gap:10px;margin-top:12px}
+.small-button{background:#f5eaf0;color:#765466;padding:7px 12px}
+.remove-button{background:transparent;color:#b56b83;padding:7px}
+.empty{color:#a28e98;font-size:14px}
+.summary-row{display:flex;justify-content:space-between;margin:12px 0;font-size:14px}
+.total{border-top:1px solid #eadce3;padding-top:14px;margin-top:15px;font-size:18px;font-weight:bold}
+.deposit-info{background:#fff5f8;border-radius:9px;padding:13px;margin-top:15px;font-size:13px;line-height:1.6}
+.address-fields{display:none;margin-top:10px;padding-top:10px;border-top:1px solid #f0e4e9}
+.terms{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.6;margin-top:15px}
+.terms input{width:auto;margin-top:3px;accent-color:#a77d94}
+.checkout-button{width:100%;background:#765466;color:white;margin-top:18px;padding:16px}
+.message{color:#b14f69;font-size:13px;margin-top:12px;line-height:1.5;display:none}
+.footer{text-align:center;font-size:12px;color:#ad98a2;margin:25px 0 10px}
+.keychain-note{background:#fff5f8;border-radius:8px;padding:12px;font-size:12px;color:#8e6478;line-height:1.5;margin-top:10px}
 </style>
 </head>
-
 <body>
 <div class="container">
 
-<a class="back" href="https://pressonnailsset.carrd.co/" onclick="return goBack(event)">
-  ← Volver a la tienda
-</a>
+<a class="back" href="https://pressonnailsset.carrd.co/" onclick="return goBack(event)">← Volver a la tienda</a>
 
-<h1>PRESSON NAILS SET</h1>
+<h1>PRESS ON NAILS SET</h1>
 <p class="subtitle">Tu pedido, en un solo lugar ♡</p>
 
 <div class="section">
-  <h2>Agregar producto</h2>
+<h2>Agregar producto</h2>
+<div class="product-name">Blue Dynasty</div>
+<div class="price">$380</div>
 
-  <div class="product-name">Blue Dynasty</div>
-  <div class="price">$380</div>
+<label for="size">Elegí tu talle *</label>
+<select id="size">
+<option value="">Seleccionar talle</option>
+<option value="XS">XS</option>
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+</select>
 
-  <label for="size">Elegí tu talle *</label>
-  <select id="size">
-    <option value="">Seleccionar talle</option>
-    <option value="XS">XS</option>
-    <option value="S">S</option>
-    <option value="M">M</option>
-    <option value="L">L</option>
-  </select>
+<label for="kit">Kit de colocación *</label>
+<select id="kit">
+<option value="">Seleccionar kit</option>
+<option value="Básico">Kit Básico - Incluido</option>
+<option value="Fuerte">Kit Fuerte - $100 adicionales</option>
+<option value="Premium">Kit Premium - $130 adicionales</option>
+<option value="Gift">Kit Gift - $200 adicionales</option>
+</select>
 
-  <p class="add-note">
-    Para agregar este producto al carrito, primero tenés que elegir tu talle y después apretar el botón «AÑADIR AL CARRITO».
-  </p>
+<label>¿Querés agregar un llavero? *</label>
+<label class="option">
+<input type="radio" name="keychain" value="Sí"> Sí, quiero un llavero
+</label>
+<label class="option">
+<input type="radio" name="keychain" value="No"> No quiero llavero
+</label>
 
-  <button class="add-button" onclick="addToCart()">
-    AÑADIR AL CARRITO
-  </button>
+<div class="keychain-note">
+Si elegís que sí, después te mostraremos los modelos disponibles y sus precios para que puedas elegir.
+Podés cambiar de opinión y cancelar tu elección en cualquier momento, incluso después de seleccionar que sí lo querés. No se agregará ningún costo hasta que elijas un modelo y confirmemos su precio.
+</div>
 
-  <p id="addMessage" class="message"></p>
+<p class="add-note">
+Para agregar el producto al carrito, completá todas las opciones y apretá «AÑADIR AL CARRITO».
+</p>
+<button class="add-button" onclick="addToCart()">AÑADIR AL CARRITO</button>
+<p id="addMessage" class="message"></p>
 </div>
 
 <div class="section">
-  <h2>Mi carrito</h2>
-  <div id="cartItems">
-    <p class="empty">Todavía no agregaste productos.</p>
-  </div>
+<h2>Mi carrito</h2>
+<div id="cartItems"><p class="empty">Todavía no agregaste productos.</p></div>
 </div>
 
 <div class="section">
-  <h2>Forma de pago *</h2>
-
-  <label class="option">
-    <input type="radio" name="payment" value="Transferencia">
-    Transferencia
-  </label>
-
-  <label class="option">
-    <input type="radio" name="payment" value="Efectivo">
-    Efectivo
-  </label>
+<h2>Forma de pago *</h2>
+<label class="option"><input type="radio" name="payment" value="Transferencia"> Transferencia</label>
+<label class="option"><input type="radio" name="payment" value="Efectivo"> Efectivo</label>
 </div>
 
 <div class="section">
-  <h2>Entrega *</h2>
+<h2>Entrega *</h2>
+<label class="option"><input type="radio" name="delivery" value="Envío" onchange="toggleAddress()"> Envío (+$50)</label>
+<label class="option"><input type="radio" name="delivery" value="Pasar a buscar" onchange="toggleAddress()"> Pasar a buscar (sin costo)</label>
 
-  <label class="option">
-    <input type="radio" name="delivery" value="Envío" onchange="toggleAddress()">
-    Envío (+$50)
-  </label>
+<div class="address-fields" id="addressFields">
+<h2>Dirección de entrega</h2>
+<p class="add-note">Todos los campos son obligatorios para coordinar el envío.</p>
 
-  <label class="option">
-    <input type="radio" name="delivery" value="Pasar a buscar" onchange="toggleAddress()">
-    Pasar a buscar (sin costo)
-  </label>
+<label for="city">Localidad / Ciudad *</label>
+<input id="city" type="text" placeholder="Ej. Artigas">
 
-  <div class="address-fields" id="addressFields">
-    <h2>Dirección de entrega</h2>
-    <p class="add-note">Todos los campos son obligatorios para coordinar el envío.</p>
+<label for="neighborhood">Barrio *</label>
+<input id="neighborhood" type="text" placeholder="Tu barrio">
 
-    <label for="city">Localidad / Ciudad *</label>
-    <input id="city" type="text" placeholder="Ej. Artigas">
+<label for="street">Calle *</label>
+<input id="street" type="text" placeholder="Nombre de la calle">
 
-    <label for="neighborhood">Barrio *</label>
-    <input id="neighborhood" type="text" placeholder="Tu barrio">
+<label for="houseNumber">Número de puerta / casa *</label>
+<input id="houseNumber" type="text" placeholder="Ej. 123">
 
-    <label for="street">Calle *</label>
-    <input id="street" type="text" placeholder="Nombre de la calle">
-
-    <label for="houseNumber">Número de puerta / casa *</label>
-    <input id="houseNumber" type="text" placeholder="Ej. 123">
-
-    <label for="betweenStreets">¿Entre qué calles? *</label>
-    <input id="betweenStreets" type="text" placeholder="Ej. Entre calle A y calle B">
-  </div>
+<label for="betweenStreets">¿Entre qué calles? *</label>
+<input id="betweenStreets" type="text" placeholder="Ej. Entre calle A y calle B">
+</div>
 </div>
 
 <div class="section">
-  <h2>Resumen del pedido</h2>
+<h2>Resumen del pedido</h2>
+<div class="summary-row"><span>Productos y kits</span><span id="subtotal">$0</span></div>
+<div class="summary-row"><span>Envío</span><span id="shipping">$0</span></div>
+<div class="summary-row total"><span>Total</span><span id="total">$0</span></div>
 
-  <div class="summary-row">
-    <span>Productos</span>
-    <span id="subtotal">$0</span>
-  </div>
+<div class="deposit-info">
+<strong>Seña del pedido</strong><br>
+Para confirmar el pedido se debe abonar el 50% del total. El 50% restante se paga al momento de la entrega o retiro.
+<br><br>
+<span id="depositAmount">Seña: $0</span><br>
+<span id="remainingAmount">Restante: $0</span>
+<br><br>
+<strong>Importante:</strong> Si solicitaste un llavero, su precio se confirmará después de mostrarte los modelos disponibles. Por eso todavía no está incluido en este total.
+</div>
 
-  <div class="summary-row">
-    <span>Envío</span>
-    <span id="shipping">$0</span>
-  </div>
+<label class="terms">
+<input type="checkbox" id="acceptTerms">
+<span>Leí y acepto las condiciones del pedido. Entiendo que debo abonar una seña del 50% del total para confirmar el pedido y que el resto se paga al recibirlo o retirarlo.</span>
+</label>
 
-  <div class="summary-row total">
-    <span>Total</span>
-    <span id="total">$0</span>
-  </div>
+<p class="add-note">
+Los pedidos comienzan a prepararse una vez recibida la seña y confirmados los detalles. Si el trabajo personalizado ya comenzó y se cancela el pedido, la seña podrá destinarse a cubrir los materiales y el trabajo realizado, según corresponda.
+</p>
 
-  <div class="deposit-info">
-    <strong>Seña del pedido</strong><br>
-    Para confirmar el pedido se debe abonar el 50% del total como seña.
-    El 50% restante se paga al momento de la entrega o retiro.
-    <br><br>
-    <span id="depositAmount">Seña: $0</span><br>
-    <span id="remainingAmount">Restante: $0</span>
-  </div>
-
-  <label class="terms">
-    <input type="checkbox" id="acceptTerms">
-    <span>
-      Leí y acepto las condiciones del pedido. Entiendo que debo abonar una seña del 50% del total para confirmar el pedido y que el resto se paga al recibirlo o retirarlo.
-    </span>
-  </label>
-
-  <p class="add-note">
-    Los pedidos comienzan a prepararse una vez recibida la seña y confirmados los detalles. Si el trabajo personalizado ya comenzó y se cancela el pedido, la seña podrá destinarse a cubrir los materiales y el trabajo realizado, según corresponda.
-  </p>
-
-  <button class="checkout-button" onclick="checkout()">
-    CONFIRMAR PEDIDO POR WHATSAPP
-  </button>
-
-  <p id="errorMessage" class="message"></p>
+<button class="checkout-button" onclick="checkout()">CONFIRMAR PEDIDO POR WHATSAPP</button>
+<p id="errorMessage" class="message"></p>
 </div>
 
 <p class="footer">PressOn Nails Set · Gracias por tu compra ♡</p>
-
 </div>
 
 <script>
@@ -386,11 +170,18 @@ const SHIPPING_PRICE = 50;
 const WHATSAPP_NUMBER = "59894716769";
 const STORE_URL = "https://pressonnailsset.carrd.co/";
 
+const KIT_PRICES = {
+  "Básico": 0,
+  "Fuerte": 100,
+  "Premium": 130,
+  "Gift": 200
+};
+
 let cart = [];
 
 try {
   cart = JSON.parse(localStorage.getItem("presson_cart")) || [];
-} catch (error) {
+} catch(error) {
   cart = [];
 }
 
@@ -400,33 +191,37 @@ function saveCart() {
 
 function goBack(event) {
   event.preventDefault();
-
   try {
-    if (
-      document.referrer &&
-      new URL(document.referrer).hostname === "pressonnailsset.carrd.co"
-    ) {
+    if (document.referrer &&
+        new URL(document.referrer).hostname === "pressonnailsset.carrd.co") {
       history.back();
       return false;
     }
-  } catch (error) {}
-
+  } catch(error) {}
   window.location.href = STORE_URL;
   return false;
 }
 
 function addToCart() {
   const size = document.getElementById("size").value;
+  const kit = document.getElementById("kit").value;
+  const keychain = document.querySelector('input[name="keychain"]:checked');
   const message = document.getElementById("addMessage");
 
-  if (!size) {
-    message.textContent = "Por favor, seleccioná un talle antes de agregar el producto.";
+  if (!size || !kit || !keychain) {
+    message.textContent = "Completá el talle, el kit de colocación y la opción de llavero para continuar.";
     message.style.display = "block";
     return;
   }
 
+  const kitPrice = KIT_PRICES[kit];
+  const unitPrice = PRICE + kitPrice;
+
   const existing = cart.find(item =>
-    item.product === PRODUCT && item.size === size
+    item.product === PRODUCT &&
+    item.size === size &&
+    item.kit === kit &&
+    item.keychain === keychain.value
   );
 
   if (existing) {
@@ -436,6 +231,10 @@ function addToCart() {
       product: PRODUCT,
       price: PRICE,
       size: size,
+      kit: kit,
+      kitPrice: kitPrice,
+      keychain: keychain.value,
+      unitPrice: unitPrice,
       quantity: 1
     });
   }
@@ -447,15 +246,13 @@ function addToCart() {
   message.style.display = "block";
 
   document.getElementById("size").value = "";
+  document.getElementById("kit").value = "";
+  document.querySelectorAll('input[name="keychain"]').forEach(input => input.checked = false);
 }
 
 function changeQuantity(index, amount) {
   cart[index].quantity += amount;
-
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-
+  if (cart[index].quantity <= 0) cart.splice(index, 1);
   saveCart();
   renderCart();
 }
@@ -468,7 +265,8 @@ function removeItem(index) {
 
 function getSubtotal() {
   return cart.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
+    const unitPrice = item.unitPrice ?? (item.price + (item.kitPrice || 0));
+    return sum + unitPrice * item.quantity;
   }, 0);
 }
 
@@ -487,24 +285,31 @@ function renderCart() {
   if (cart.length === 0) {
     container.innerHTML = '<p class="empty">Todavía no agregaste productos.</p>';
   } else {
-    container.innerHTML = cart.map((item, index) => `
+    container.innerHTML = cart.map((item, index) => {
+      const kit = item.kit || "Sin especificar";
+      const kitPrice = item.kitPrice || 0;
+      const unitPrice = item.unitPrice ?? (item.price + kitPrice);
+      const keychain = item.keychain || "No especificado";
+
+      return `
       <div class="cart-item">
         <div class="cart-top">
           <div>
             <strong>${item.product}</strong><br>
-            <span class="price">Talle: ${item.size} · $${item.price}</span>
+            <span class="price">Talle: ${item.size}</span><br>
+            <span class="price">Kit: ${kit} (+$${kitPrice})</span><br>
+            <span class="price">Llavero: ${keychain}</span>
           </div>
-          <strong>$${item.price * item.quantity}</strong>
+          <strong>$${unitPrice * item.quantity}</strong>
         </div>
-
         <div class="cart-controls">
           <button class="small-button" onclick="changeQuantity(${index}, -1)">−</button>
           <span>${item.quantity}</span>
           <button class="small-button" onclick="changeQuantity(${index}, 1)">+</button>
           <button class="remove-button" onclick="removeItem(${index})">Eliminar</button>
         </div>
-      </div>
-    `).join("");
+      </div>`;
+    }).join("");
   }
 
   updateTotals();
@@ -525,15 +330,8 @@ function updateTotals() {
 }
 
 function toggleAddress() {
-  const fields = document.getElementById("addressFields");
   const show = getDelivery() === "Envío";
-
-  fields.style.display = show ? "block" : "none";
-
-  ["city", "neighborhood", "street", "houseNumber", "betweenStreets"].forEach(id => {
-    document.getElementById(id).required = show;
-  });
-
+  document.getElementById("addressFields").style.display = show ? "block" : "none";
   updateTotals();
 }
 
@@ -547,7 +345,7 @@ function checkout() {
   document.getElementById("errorMessage").style.display = "none";
 
   if (cart.length === 0) {
-    showError("Tu carrito está vacío. Agregá al menos un producto para continuar.");
+    showError("Tu carrito está vacío. Agregá al menos un producto.");
     return;
   }
 
@@ -575,11 +373,9 @@ function checkout() {
     ];
 
     for (const [id, name] of fields) {
-      const value = document.getElementById(id).value.trim();
-
-      if (!value) {
+      if (!document.getElementById(id).value.trim()) {
         document.getElementById(id).focus();
-        showError("Tenés que completar el campo: " + name + ".");
+        showError("Tenés que completar: " + name + ".");
         return;
       }
     }
@@ -596,46 +392,51 @@ function checkout() {
   const deposit = total / 2;
   const remaining = total - deposit;
 
-  let message = "¡Hola! Quiero confirmar este pedido de PressOn Nails Set 💗\n\n";
+  let message = "¡Hola! Quiero realizar un pedido de Press On Nails Set\n\n";
   message += "MI PEDIDO:\n";
 
   cart.forEach(item => {
-    message += `• ${item.product} - Talle ${item.size} - Cantidad: ${item.quantity} - $${item.price * item.quantity}\n`;
+    const kit = item.kit || "Sin especificar";
+    const kitPrice = item.kitPrice || 0;
+    const unitPrice = item.unitPrice ?? (item.price + kitPrice);
+    const keychain = item.keychain || "No especificado";
+
+    message += `• ${item.product}\n`;
+    message += `  Talle: ${item.size}\n`;
+    message += `  Kit de colocación: ${kit} (+$${kitPrice})\n`;
+    message += `  Llavero: ${keychain}\n`;
+    if (keychain === "Sí") {
+      message += "  Precio del llavero: a confirmar según modelo elegido\n";
+    }
+    message += `  Cantidad: ${item.quantity}\n`;
+    message += `  Precio: $${unitPrice * item.quantity}\n\n`;
   });
 
-  message += `\nSubtotal: $${subtotal}`;
+  message += `Subtotal: $${subtotal}`;
   message += `\nEnvío: $${shipping}`;
-  message += `\nTOTAL: $${total}`;
-  message += `\n\nSEÑA DEL 50%: $${deposit}`;
+  message += `\nTOTAL (sin llavero): $${total}`;
+  message += `\nSEÑA DEL 50%: $${deposit}`;
   message += `\nRESTANTE: $${remaining}`;
   message += `\n\nForma de pago: ${payment.value}`;
   message += `\nEntrega: ${delivery.value}`;
 
   if (delivery.value === "Envío") {
-    const city = document.getElementById("city").value.trim();
-    const neighborhood = document.getElementById("neighborhood").value.trim();
-    const street = document.getElementById("street").value.trim();
-    const houseNumber = document.getElementById("houseNumber").value.trim();
-    const betweenStreets = document.getElementById("betweenStreets").value.trim();
-
     message += "\n\nDIRECCIÓN DE ENTREGA:";
-    message += `\nLocalidad: ${city}`;
-    message += `\nBarrio: ${neighborhood}`;
-    message += `\nCalle: ${street}`;
-    message += `\nNúmero de casa: ${houseNumber}`;
-    message += `\nEntre calles: ${betweenStreets}`;
+    message += "\nLocalidad: " + document.getElementById("city").value.trim();
+    message += "\nBarrio: " + document.getElementById("neighborhood").value.trim();
+    message += "\nCalle: " + document.getElementById("street").value.trim();
+    message += "\nNúmero de casa: " + document.getElementById("houseNumber").value.trim();
+    message += "\nEntre calles: " + document.getElementById("betweenStreets").value.trim();
   }
 
   message += "\n\n¡Gracias!";
 
   const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-
   window.open(url, "_blank");
 }
 
 renderCart();
 toggleAddress();
 </script>
-
 </body>
 </html>
