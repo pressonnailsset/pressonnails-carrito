@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mi carrito | Press On Nails Set</title>
 <style>
 *{box-sizing:border-box}
@@ -14,12 +14,14 @@ header p{margin:8px 0 0;font-size:14px}
 main{max-width:650px;margin:25px auto;padding:0 16px}
 .card{background:white;border:1px solid #f0d5e0;border-radius:16px;padding:20px;margin-bottom:18px}
 h2{font-size:19px;color:#874c66;margin-top:0}
-label{display:block;font-size:14px;margin:14px 0 7px}
-select,input{width:100%;padding:12px;border:1px solid #e5c5d3;border-radius:9px;background:white;font-size:15px}
-button{border:0;border-radius:10px;padding:13px 16px;font-weight:bold;cursor:pointer}
+.product{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price{font-weight:bold;color:#874c66;font-size:19px}
+label{display:block;font-size:14px;margin:16px 0 7px}
+select{width:100%;padding:13px;border:1px solid #e5c5d3;border-radius:9px;background:white;font-size:15px}
+button{border:0;border-radius:10px;padding:12px 16px;font-weight:bold;cursor:pointer}
 .add,.checkout{width:100%;background:#bd7896;color:white;margin-top:16px}
 .secondary{background:#f8e5ed;color:#874c66}
-.item{border-bottom:1px solid #f1dce5;padding:13px 0}
+.item{border-bottom:1px solid #f1dce5;padding:14px 0}
 .item:last-child{border:0}
 .item-top{display:flex;justify-content:space-between;gap:10px}
 .item small{color:#876c78}
@@ -29,30 +31,37 @@ button{border:0;border-radius:10px;padding:13px 16px;font-weight:bold;cursor:poi
 .total{font-size:21px;font-weight:bold;text-align:right;margin-top:18px}
 .empty{text-align:center;color:#967d87;padding:18px}
 .notice{font-size:13px;color:#876c78;text-align:center;margin-top:12px}
+.option{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #efd8e2;border-radius:10px;margin-top:9px;cursor:pointer}
+.option input{accent-color:#bd7896;width:17px;height:17px}
+.option span{flex:1}
+.summary-line{display:flex;justify-content:space-between;margin:10px 0;gap:12px}
+.final-total{font-size:22px;font-weight:bold;color:#874c66}
 </style>
 </head>
 <body>
+
 <header>
 <h1>Press On Nails Set</h1>
 <p>Tu próximo set favorito 💗</p>
 </header>
 
 <main>
-<section class="card">
-<h2>Agregar un producto</h2>
-<label for="product">Diseño</label>
-<input id="product" value="Blue Dynasty" placeholder="Nombre del diseño">
 
-<label for="price">Precio ($)</label>
-<input id="price" type="number" min="0" value="380">
+<section class="card">
+<h2>Agregar al carrito</h2>
+
+<div class="product">
+<strong>Blue Dynasty</strong>
+<span class="price">$380</span>
+</div>
 
 <label for="size">Seleccioná tu talle</label>
 <select id="size">
 <option value="">Elegir talle</option>
-<option>XS</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
+<option value="XS">XS</option>
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
 </select>
 
 <button class="add" onclick="addItem()">AÑADIR AL CARRITO</button>
@@ -62,19 +71,81 @@ button{border:0;border-radius:10px;padding:13px 16px;font-weight:bold;cursor:poi
 <section class="card">
 <h2>Mi carrito 🛍️</h2>
 <div id="items"></div>
-<div class="total" id="total">Total: $0</div>
-<button class="checkout" onclick="checkout()">FINALIZAR PEDIDO POR WHATSAPP</button>
-<p class="notice">Tu carrito queda guardado en este dispositivo y navegador.</p>
+<div class="total" id="subtotal">Subtotal: $0</div>
 </section>
+
+<section class="card">
+<h2>Forma de pago</h2>
+
+<label class="option">
+<input type="radio" name="payment" value="Transferencia">
+<span>Transferencia</span>
+</label>
+
+<label class="option">
+<input type="radio" name="payment" value="Efectivo">
+<span>Efectivo</span>
+</label>
+
+<h2 style="margin-top:25px">Forma de entrega</h2>
+
+<label class="option">
+<input type="radio" name="delivery" value="Envío">
+<span>Envío</span>
+<strong>+$50</strong>
+</label>
+
+<label class="option">
+<input type="radio" name="delivery" value="Pasar a buscar">
+<span>Pasar a buscar</span>
+<strong>Gratis</strong>
+</label>
+
+<div style="margin-top:22px">
+<div class="summary-line">
+<span>Subtotal</span>
+<strong id="summarySubtotal">$0</strong>
+</div>
+<div class="summary-line">
+<span>Envío</span>
+<strong id="shipping">$0</strong>
+</div>
+<hr style="border:0;border-top:1px solid #f0d5e0">
+<div class="summary-line final-total">
+<span>Total</span>
+<strong id="finalTotal">$0</strong>
+</div>
+</div>
+
+<button class="checkout" onclick="checkout()">FINALIZAR PEDIDO POR WHATSAPP</button>
+<p class="notice">Revisá tu pedido antes de enviarlo. WhatsApp abrirá el mensaje preparado para que lo confirmes.</p>
+</section>
+
 </main>
 
 <script>
-const STORAGE_KEY = "pressOnNailsCart_v1";
+const PRODUCT = "Blue Dynasty";
+const PRICE = 380;
+const SHIPPING_PRICE = 50;
+const STORAGE_KEY = "pressOnNailsCart_v2";
+
 let cart = [];
 
 try {
-  cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-  if (!Array.isArray(cart)) cart = [];
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  if (Array.isArray(saved)) {
+    cart = saved.filter(item =>
+      item.name === PRODUCT &&
+      ["XS","S","M","L"].includes(item.size) &&
+      Number.isInteger(item.qty) &&
+      item.qty > 0
+    ).map(item => ({
+      name: PRODUCT,
+      price: PRICE,
+      size: item.size,
+      qty: item.qty
+    }));
+  }
 } catch(e) {
   cart = [];
 }
@@ -85,25 +156,29 @@ function save() {
 }
 
 function addItem() {
-  const name = document.getElementById("product").value.trim();
-  const price = Number(document.getElementById("price").value);
   const size = document.getElementById("size").value;
+  const notice = document.getElementById("notice");
 
-  if (!name || !Number.isFinite(price) || price <= 0 || !size) {
-    document.getElementById("notice").textContent =
-      "Completá el diseño, el precio y el talle.";
+  if (!size) {
+    notice.textContent = "Primero seleccioná un talle.";
     return;
   }
 
-  const existing = cart.find(x =>
-    x.name === name && x.size === size && x.price === price
-  );
+  const existing = cart.find(item => item.size === size);
 
-  if (existing) existing.qty++;
-  else cart.push({name, price, size, qty:1});
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      name: PRODUCT,
+      price: PRICE,
+      size: size,
+      qty: 1
+    });
+  }
 
-  document.getElementById("notice").textContent =
-    "¡Producto agregado al carrito! 💗";
+  notice.textContent = "¡Blue Dynasty fue agregado al carrito!";
+  document.getElementById("size").value = "";
   save();
 }
 
@@ -118,22 +193,22 @@ function removeItem(index) {
   save();
 }
 
+function getSubtotal() {
+  return cart.reduce((sum, item) => sum + PRICE * item.qty, 0);
+}
+
 function render() {
   const container = document.getElementById("items");
-  const totalElement = document.getElementById("total");
+  container.innerHTML = "";
 
   if (!cart.length) {
-    container.innerHTML = '<div class="empty">Tu carrito está vacío 💗</div>';
-    totalElement.textContent = "Total: $0";
-    return;
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "Tu carrito está vacío";
+    container.appendChild(empty);
   }
 
-  container.innerHTML = "";
-  let total = 0;
-
   cart.forEach((item, index) => {
-    total += item.price * item.qty;
-
     const div = document.createElement("div");
     div.className = "item";
 
@@ -142,13 +217,15 @@ function render() {
 
     const info = document.createElement("div");
     const name = document.createElement("strong");
-    name.textContent = item.name;
-    const details = document.createElement("div");
-    details.textContent = "Talle: " + item.size + " · $" + item.price;
-    const subtotal = document.createElement("small");
-    subtotal.textContent = "Subtotal: $" + (item.price * item.qty);
+    name.textContent = PRODUCT;
 
-    info.append(name, details, subtotal);
+    const details = document.createElement("div");
+    details.textContent = "Talle: " + item.size + " · $" + PRICE;
+
+    const small = document.createElement("small");
+    small.textContent = "Subtotal: $" + (PRICE * item.qty);
+
+    info.append(name, details, small);
     top.append(info);
 
     const controls = document.createElement("div");
@@ -177,8 +254,26 @@ function render() {
     container.append(div);
   });
 
-  totalElement.textContent = "Total: $" + total;
+  const subtotal = getSubtotal();
+
+  document.getElementById("subtotal").textContent = "Subtotal: $" + subtotal;
+  document.getElementById("summarySubtotal").textContent = "$" + subtotal;
+
+  updateTotal();
 }
+
+function updateTotal() {
+  const delivery = document.querySelector('input[name="delivery"]:checked');
+  const shippingCost = delivery && delivery.value === "Envío" ? SHIPPING_PRICE : 0;
+  const subtotal = getSubtotal();
+
+  document.getElementById("shipping").textContent = "$" + shippingCost;
+  document.getElementById("finalTotal").textContent = "$" + (subtotal + shippingCost);
+}
+
+document.querySelectorAll('input[name="delivery"]').forEach(input => {
+  input.addEventListener("change", updateTotal);
+});
 
 function checkout() {
   if (!cart.length) {
@@ -186,22 +281,41 @@ function checkout() {
     return;
   }
 
-  let total = 0;
-  let message = "¡Hola! Quiero realizar este pedido de Press On Nails Set:%0A%0A";
+  const payment = document.querySelector('input[name="payment"]:checked');
+  const delivery = document.querySelector('input[name="delivery"]:checked');
+
+  if (!payment) {
+    alert("Seleccioná una forma de pago.");
+    return;
+  }
+
+  if (!delivery) {
+    alert("Seleccioná una forma de entrega.");
+    return;
+  }
+
+  const subtotal = getSubtotal();
+  const shippingCost = delivery.value === "Envío" ? SHIPPING_PRICE : 0;
+  const total = subtotal + shippingCost;
+
+  let message = "¡Hola! Quiero realizar este pedido de Press On Nails Set:\n\n";
 
   cart.forEach(item => {
-    const subtotal = item.price * item.qty;
-    total += subtotal;
-    message += "• " + encodeURIComponent(item.name) +
-      " | Talle " + encodeURIComponent(item.size) +
+    message += "• " + PRODUCT +
+      " | Talle: " + item.size +
       " | Cantidad: " + item.qty +
-      " | $" + subtotal + "%0A";
+      " | Subtotal: $" + (PRICE * item.qty) + "\n";
   });
 
-  message += "%0ATotal: $" + total;
-  message += "%0A%0A¡Gracias!";
+  message += "\nSubtotal: $" + subtotal;
+  message += "\nEnvío: $" + shippingCost;
+  message += "\nTotal: $" + total;
+  message += "\nForma de pago: " + payment.value;
+  message += "\nEntrega: " + delivery.value;
+  message += "\n\n¡Gracias!";
 
-  window.open("https://wa.me/59894716769?text=" + message, "_blank");
+  const url = "https://wa.me/59894716769?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
 }
 
 render();
