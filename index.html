@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi carrito | Press On Nails Set</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff7fa;color:#49343d;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 15px;background:#f8dce7}
+h1{font-size:25px;margin:0;color:#874c66}
+header p{margin:8px 0 0;font-size:14px}
+main{max-width:650px;margin:25px auto;padding:0 16px}
+.card{background:white;border:1px solid #f0d5e0;border-radius:16px;padding:20px;margin-bottom:18px}
+h2{font-size:19px;color:#874c66;margin-top:0}
+label{display:block;font-size:14px;margin:14px 0 7px}
+select,input{width:100%;padding:12px;border:1px solid #e5c5d3;border-radius:9px;background:white;font-size:15px}
+button{border:0;border-radius:10px;padding:13px 16px;font-weight:bold;cursor:pointer}
+.add,.checkout{width:100%;background:#bd7896;color:white;margin-top:16px}
+.secondary{background:#f8e5ed;color:#874c66}
+.item{border-bottom:1px solid #f1dce5;padding:13px 0}
+.item:last-child{border:0}
+.item-top{display:flex;justify-content:space-between;gap:10px}
+.item small{color:#876c78}
+.controls{display:flex;align-items:center;gap:9px;margin-top:10px}
+.controls button{padding:7px 12px}
+.remove{margin-left:auto;color:#a13c61}
+.total{font-size:21px;font-weight:bold;text-align:right;margin-top:18px}
+.empty{text-align:center;color:#967d87;padding:18px}
+.notice{font-size:13px;color:#876c78;text-align:center;margin-top:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>Press On Nails Set</h1>
+<p>Tu próximo set favorito 💗</p>
+</header>
+
+<main>
+<section class="card">
+<h2>Agregar un producto</h2>
+<label for="product">Diseño</label>
+<input id="product" value="Blue Dynasty" placeholder="Nombre del diseño">
+
+<label for="price">Precio ($)</label>
+<input id="price" type="number" min="0" value="380">
+
+<label for="size">Seleccioná tu talle</label>
+<select id="size">
+<option value="">Elegir talle</option>
+<option>XS</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+</select>
+
+<button class="add" onclick="addItem()">AÑADIR AL CARRITO</button>
+<p class="notice" id="notice"></p>
+</section>
+
+<section class="card">
+<h2>Mi carrito 🛍️</h2>
+<div id="items"></div>
+<div class="total" id="total">Total: $0</div>
+<button class="checkout" onclick="checkout()">FINALIZAR PEDIDO POR WHATSAPP</button>
+<p class="notice">Tu carrito queda guardado en este dispositivo y navegador.</p>
+</section>
+</main>
+
+<script>
+const STORAGE_KEY = "pressOnNailsCart_v1";
+let cart = [];
+
+try {
+  cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  if (!Array.isArray(cart)) cart = [];
+} catch(e) {
+  cart = [];
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  render();
+}
+
+function addItem() {
+  const name = document.getElementById("product").value.trim();
+  const price = Number(document.getElementById("price").value);
+  const size = document.getElementById("size").value;
+
+  if (!name || !Number.isFinite(price) || price <= 0 || !size) {
+    document.getElementById("notice").textContent =
+      "Completá el diseño, el precio y el talle.";
+    return;
+  }
+
+  const existing = cart.find(x =>
+    x.name === name && x.size === size && x.price === price
+  );
+
+  if (existing) existing.qty++;
+  else cart.push({name, price, size, qty:1});
+
+  document.getElementById("notice").textContent =
+    "¡Producto agregado al carrito! 💗";
+  save();
+}
+
+function changeQty(index, amount) {
+  cart[index].qty += amount;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  save();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  save();
+}
+
+function render() {
+  const container = document.getElementById("items");
+  const totalElement = document.getElementById("total");
+
+  if (!cart.length) {
+    container.innerHTML = '<div class="empty">Tu carrito está vacío 💗</div>';
+    totalElement.textContent = "Total: $0";
+    return;
+  }
+
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+
+    const div = document.createElement("div");
+    div.className = "item";
+
+    const top = document.createElement("div");
+    top.className = "item-top";
+
+    const info = document.createElement("div");
+    const name = document.createElement("strong");
+    name.textContent = item.name;
+    const details = document.createElement("div");
+    details.textContent = "Talle: " + item.size + " · $" + item.price;
+    const subtotal = document.createElement("small");
+    subtotal.textContent = "Subtotal: $" + (item.price * item.qty);
+
+    info.append(name, details, subtotal);
+    top.append(info);
+
+    const controls = document.createElement("div");
+    controls.className = "controls";
+
+    const minus = document.createElement("button");
+    minus.className = "secondary";
+    minus.textContent = "−";
+    minus.onclick = () => changeQty(index, -1);
+
+    const quantity = document.createElement("span");
+    quantity.textContent = item.qty;
+
+    const plus = document.createElement("button");
+    plus.className = "secondary";
+    plus.textContent = "+";
+    plus.onclick = () => changeQty(index, 1);
+
+    const remove = document.createElement("button");
+    remove.className = "remove";
+    remove.textContent = "Eliminar";
+    remove.onclick = () => removeItem(index);
+
+    controls.append(minus, quantity, plus, remove);
+    div.append(top, controls);
+    container.append(div);
+  });
+
+  totalElement.textContent = "Total: $" + total;
+}
+
+function checkout() {
+  if (!cart.length) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
+
+  let total = 0;
+  let message = "¡Hola! Quiero realizar este pedido de Press On Nails Set:%0A%0A";
+
+  cart.forEach(item => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    message += "• " + encodeURIComponent(item.name) +
+      " | Talle " + encodeURIComponent(item.size) +
+      " | Cantidad: " + item.qty +
+      " | $" + subtotal + "%0A";
+  });
+
+  message += "%0ATotal: $" + total;
+  message += "%0A%0A¡Gracias!";
+
+  window.open("https://wa.me/59894716769?text=" + message, "_blank");
+}
+
+render();
+</script>
+</body>
+</html>
