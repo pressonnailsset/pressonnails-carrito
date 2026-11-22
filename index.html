@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrito | PressOn Nails Set</title>
+<title>Press On Nails Set | Carrito</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#fff9fb;color:#493b42;padding:20px}
@@ -43,16 +44,20 @@ button{cursor:pointer;border:none;border-radius:8px;padding:13px;font-size:14px;
 .keychain-note{background:#fff5f8;border-radius:8px;padding:12px;font-size:12px;color:#8e6478;line-height:1.5;margin-top:10px}
 </style>
 </head>
+
 <body>
 <div class="container">
 
-<a class="back" href="https://pressonnailsset.carrd.co/" onclick="return goBack(event)">← Volver a la tienda</a>
+<a class="back" href="https://pressonnailsset.carrd.co/" onclick="return goBack(event)">
+← Volver a la tienda
+</a>
 
 <h1>PRESS ON NAILS SET</h1>
 <p class="subtitle">Tu pedido, en un solo lugar ♡</p>
 
 <div class="section">
 <h2>Agregar producto</h2>
+
 <div class="product-name">Blue Dynasty</div>
 <div class="price">$380</div>
 
@@ -66,7 +71,7 @@ button{cursor:pointer;border:none;border-radius:8px;padding:13px;font-size:14px;
 </select>
 
 <label for="kit">Kit de colocación *</label>
-<select id="kit">
+<select id="kit" onchange="toggleKeychain()">
 <option value="">Seleccionar kit</option>
 <option value="Básico">Kit Básico - Incluido</option>
 <option value="Fuerte">Kit Fuerte - $100 adicionales</option>
@@ -74,40 +79,65 @@ button{cursor:pointer;border:none;border-radius:8px;padding:13px;font-size:14px;
 <option value="Gift">Kit Gift - $200 adicionales</option>
 </select>
 
-<label>¿Querés agregar un llavero? *</label>
+<div id="keychainSection" style="display:none">
+<label>¿Querés agregar 2 llaveros? *</label>
+
 <label class="option">
-<input type="radio" name="keychain" value="Sí"> Sí, quiero un llavero
+<input type="radio" name="keychain" value="Sí, quiero 2 llaveros">
+Sí, quiero 2 llaveros
 </label>
+
 <label class="option">
-<input type="radio" name="keychain" value="No"> No quiero llavero
+<input type="radio" name="keychain" value="No quiero llaveros">
+No quiero llaveros
 </label>
 
 <div class="keychain-note">
-Si elegís que sí, después te mostraremos los modelos disponibles y sus precios para que puedas elegir. El costo del llavero todavía no está incluido en el total.
+La opción de agregar los 2 llaveros es totalmente opcional. Podés cambiar de opinión y cancelar tu elección cuando quieras antes de confirmar el pedido. Si los querés, después te mostraremos los modelos disponibles y sus precios para que elijas tus dos favoritos. El costo todavía no está incluido en el total.
+</div>
 </div>
 
 <p class="add-note">
 Para agregar el producto al carrito, completá todas las opciones y apretá «AÑADIR AL CARRITO».
 </p>
+
 <button class="add-button" onclick="addToCart()">AÑADIR AL CARRITO</button>
 <p id="addMessage" class="message"></p>
 </div>
 
 <div class="section">
 <h2>Mi carrito</h2>
-<div id="cartItems"><p class="empty">Todavía no agregaste productos.</p></div>
+<div id="cartItems">
+<p class="empty">Todavía no agregaste productos.</p>
+</div>
 </div>
 
 <div class="section">
 <h2>Forma de pago *</h2>
-<label class="option"><input type="radio" name="payment" value="Transferencia"> Transferencia</label>
-<label class="option"><input type="radio" name="payment" value="Efectivo"> Efectivo</label>
+
+<label class="option">
+<input type="radio" name="payment" value="Transferencia">
+Transferencia
+</label>
+
+<label class="option">
+<input type="radio" name="payment" value="Efectivo">
+Efectivo
+</label>
 </div>
 
 <div class="section">
 <h2>Entrega *</h2>
-<label class="option"><input type="radio" name="delivery" value="Envío" onchange="toggleAddress()"> Envío (+$50)</label>
-<label class="option"><input type="radio" name="delivery" value="Pasar a buscar" onchange="toggleAddress()"> Pasar a buscar (sin costo)</label>
+
+<label class="option">
+<input type="radio" name="delivery" value="Envío" onchange="toggleAddress()">
+Envío (+$50)
+</label>
+
+<label class="option">
+<input type="radio" name="delivery" value="Pasar a buscar" onchange="toggleAddress()">
+Pasar a buscar (sin costo)
+</label>
 
 <div class="address-fields" id="addressFields">
 <h2>Dirección de entrega</h2>
@@ -132,9 +162,21 @@ Para agregar el producto al carrito, completá todas las opciones y apretá «A�
 
 <div class="section">
 <h2>Resumen del pedido</h2>
-<div class="summary-row"><span>Productos y kits</span><span id="subtotal">$0</span></div>
-<div class="summary-row"><span>Envío</span><span id="shipping">$0</span></div>
-<div class="summary-row total"><span>Total</span><span id="total">$0</span></div>
+
+<div class="summary-row">
+<span>Productos y kits</span>
+<span id="subtotal">$0</span>
+</div>
+
+<div class="summary-row">
+<span>Envío</span>
+<span id="shipping">$0</span>
+</div>
+
+<div class="summary-row total">
+<span>Total</span>
+<span id="total">$0</span>
+</div>
 
 <div class="deposit-info">
 <strong>Seña del pedido</strong><br>
@@ -143,23 +185,29 @@ Para confirmar el pedido se debe abonar el 50% del total. El 50% restante se pag
 <span id="depositAmount">Seña: $0</span><br>
 <span id="remainingAmount">Restante: $0</span>
 <br><br>
-<strong>Importante:</strong> Si solicitaste un llavero, su precio se confirmará después de mostrarte los modelos disponibles. Por eso todavía no está incluido en este total.
+<strong>Sobre los llaveros:</strong> Si elegiste los 2 llaveros del Kit Gift, su precio se confirmará después de mostrarte los modelos disponibles. Todavía no están incluidos en este total.
 </div>
 
 <label class="terms">
 <input type="checkbox" id="acceptTerms">
-<span>Leí y acepto las condiciones del pedido. Entiendo que debo abonar una seña del 50% del total para confirmar el pedido y que el resto se paga al recibirlo o retirarlo.</span>
+<span>
+Leí y acepto las condiciones del pedido. Entiendo que debo abonar una seña del 50% del total para confirmar el pedido y que el resto se paga al recibirlo o retirarlo.
+</span>
 </label>
 
 <p class="add-note">
 Los pedidos comienzan a prepararse una vez recibida la seña y confirmados los detalles. Si el trabajo personalizado ya comenzó y se cancela el pedido, la seña podrá destinarse a cubrir los materiales y el trabajo realizado, según corresponda.
 </p>
 
-<button class="checkout-button" onclick="checkout()">CONFIRMAR PEDIDO POR WHATSAPP</button>
+<button class="checkout-button" onclick="checkout()">
+CONFIRMAR PEDIDO POR WHATSAPP
+</button>
+
 <p id="errorMessage" class="message"></p>
 </div>
 
-<p class="footer">PressOn Nails Set · Gracias por tu compra ♡</p>
+<p class="footer">Press On Nails Set · Gracias por tu compra ♡</p>
+
 </div>
 
 <script>
@@ -190,15 +238,34 @@ function saveCart() {
 
 function goBack(event) {
   event.preventDefault();
+
   try {
-    if (document.referrer &&
-        new URL(document.referrer).hostname === "pressonnailsset.carrd.co") {
+    if (
+      document.referrer &&
+      new URL(document.referrer).hostname === "pressonnailsset.carrd.co"
+    ) {
       history.back();
       return false;
     }
   } catch(error) {}
+
   window.location.href = STORE_URL;
   return false;
+}
+
+function toggleKeychain() {
+  const kit = document.getElementById("kit").value;
+  const section = document.getElementById("keychainSection");
+
+  if (kit === "Gift") {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+
+    document.querySelectorAll('input[name="keychain"]').forEach(input => {
+      input.checked = false;
+    });
+  }
 }
 
 function addToCart() {
@@ -207,12 +274,19 @@ function addToCart() {
   const keychain = document.querySelector('input[name="keychain"]:checked');
   const message = document.getElementById("addMessage");
 
-  if (!size || !kit || !keychain) {
-    message.textContent = "Completá el talle, el kit de colocación y la opción de llavero para continuar.";
+  if (!size || !kit) {
+    message.textContent = "Completá el talle y el kit de colocación.";
     message.style.display = "block";
     return;
   }
 
+  if (kit === "Gift" && !keychain) {
+    message.textContent = "Seleccioná si querés o no los 2 llaveros.";
+    message.style.display = "block";
+    return;
+  }
+
+  const keychainValue = kit === "Gift" ? keychain.value : "No aplica";
   const kitPrice = KIT_PRICES[kit];
   const unitPrice = PRICE + kitPrice;
 
@@ -220,7 +294,7 @@ function addToCart() {
     item.product === PRODUCT &&
     item.size === size &&
     item.kit === kit &&
-    item.keychain === keychain.value
+    item.keychain === keychainValue
   );
 
   if (existing) {
@@ -232,7 +306,7 @@ function addToCart() {
       size: size,
       kit: kit,
       kitPrice: kitPrice,
-      keychain: keychain.value,
+      keychain: keychainValue,
       unitPrice: unitPrice,
       quantity: 1
     });
@@ -246,12 +320,21 @@ function addToCart() {
 
   document.getElementById("size").value = "";
   document.getElementById("kit").value = "";
-  document.querySelectorAll('input[name="keychain"]').forEach(input => input.checked = false);
+
+  document.querySelectorAll('input[name="keychain"]').forEach(input => {
+    input.checked = false;
+  });
+
+  toggleKeychain();
 }
 
 function changeQuantity(index, amount) {
   cart[index].quantity += amount;
-  if (cart[index].quantity <= 0) cart.splice(index, 1);
+
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
   saveCart();
   renderCart();
 }
@@ -297,10 +380,11 @@ function renderCart() {
             <strong>${item.product}</strong><br>
             <span class="price">Talle: ${item.size}</span><br>
             <span class="price">Kit: ${kit} (+$${kitPrice})</span><br>
-            <span class="price">Llavero: ${keychain}</span>
+            ${kit === "Gift" ? `<span class="price">Llavero: ${keychain}</span><br>` : ""}
           </div>
           <strong>$${unitPrice * item.quantity}</strong>
         </div>
+
         <div class="cart-controls">
           <button class="small-button" onclick="changeQuantity(${index}, -1)">−</button>
           <span>${item.quantity}</span>
@@ -403,17 +487,23 @@ function checkout() {
     message += `• ${item.product}\n`;
     message += `  Talle: ${item.size}\n`;
     message += `  Kit de colocación: ${kit} (+$${kitPrice})\n`;
-    message += `  Llavero: ${keychain}\n`;
-    if (keychain === "Sí") {
-      message += "  Precio del llavero: a confirmar según modelo elegido\n";
+
+    if (kit === "Gift") {
+      message += `  Llaveros: ${keychain}\n`;
+
+      if (keychain === "Sí, quiero 2 llaveros") {
+        message += "  Cantidad de llaveros: 2\n";
+        message += "  Modelos y precio: pendientes de elegir y confirmar\n";
+      }
     }
+
     message += `  Cantidad: ${item.quantity}\n`;
     message += `  Precio: $${unitPrice * item.quantity}\n\n`;
   });
 
   message += `Subtotal: $${subtotal}`;
   message += `\nEnvío: $${shipping}`;
-  message += `\nTOTAL (sin llavero): $${total}`;
+  message += `\nTOTAL (sin llaveros): $${total}`;
   message += `\nSEÑA DEL 50%: $${deposit}`;
   message += `\nRESTANTE: $${remaining}`;
   message += `\n\nForma de pago: ${payment.value}`;
@@ -435,7 +525,9 @@ function checkout() {
 }
 
 renderCart();
+toggleKeychain();
 toggleAddress();
 </script>
+
 </body>
 </html>
